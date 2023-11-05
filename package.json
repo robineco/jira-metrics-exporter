@@ -6,8 +6,7 @@
   "scripts": {
     "start": "ts-node-dev --respawn src/app.ts",
     "start:prod": "node dist/app.js",
-    "tsc": "tsc",
-    "ts-build": "npx tsc",
+    "build-tsc": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
