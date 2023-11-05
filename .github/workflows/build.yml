@@ -47,9 +47,6 @@ jobs:
           name: dist
           path: dist
 
-      - name: Display structure of downloaded files
-        run: ls -R
-
       - name: Build Docker image
         run: |
           docker build -t your-docker-image-name:latest .
