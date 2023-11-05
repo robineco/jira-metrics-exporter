@@ -35,11 +35,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v1
+      # - name: Set up Docker
+      #   uses: docker/setup-buildx-action@v1
 
       - name: Download dist folder
         uses: actions/download-artifact@v3
@@ -47,7 +44,10 @@ jobs:
           name: dist
 
       - name: Display structure of downloaded files
-        run: ls -R
+        run: ls -la
+
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
 
       - name: Build Docker image
         run: |
