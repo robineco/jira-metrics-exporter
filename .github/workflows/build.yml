@@ -45,6 +45,8 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -la
+      - name: Display structure
+        run: ls -la /home/runner/work/jira-metrics-exporter/jira-metrics-exporter
 
       - name: 'Echo download path'
         run: echo ${{steps.download.outputs.download-path}}
