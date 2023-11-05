@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  jira-metrics-exporter:
+    build:
+      context: .
+    container_name: jira-metrics-exporter
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - '8080:3000'
+    volumes:
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+      - ./docker/grafana/dashboards:/var/lib/grafana/dashboards
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+
