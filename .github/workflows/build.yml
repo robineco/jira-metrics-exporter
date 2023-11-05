@@ -24,9 +24,6 @@ jobs:
       - name: Build Node.js project
         run: npm run build-tsc
 
-      - name: Display structure of downloaded files
-        run: ls -R
-
       - name: Archive dist folder
         uses: actions/upload-artifact@v3
         with:
@@ -45,14 +42,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
+          path: dist
 
       - name: Display structure of downloaded files
-        run: ls -la
-      - name: Display structure
-        run: ls -la /home/runner/work/jira-metrics-exporter/jira-metrics-exporter
-
-      - name: 'Echo download path'
-        run: echo ${{steps.download.outputs.download-path}}
+        run: ls -R
 
       - name: Build Docker image
         run: |
